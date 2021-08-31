@@ -24,3 +24,4 @@ def computeTripData(distanceK, vehSpeedMPS, vehKPL, gasCostPerLiter, breakfastCo
     totalCost = (breakfast*breakfastCostPerDay)+(lunches*lunchCostPerDay)+(dinners*dinnerCostPerDay)+(gasCost)
     return tripHours, gasCost, totalCost, breakfast, lunches, dinners 
     print("pog")
+    print("last commit")
