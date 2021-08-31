@@ -22,4 +22,5 @@ def computeTripData(distanceK, vehSpeedMPS, vehKPL, gasCostPerLiter, breakfastCo
         dinners+=additionalReqs
     breakfast = (int)(tripHours/8)
     totalCost = (breakfast*breakfastCostPerDay)+(lunches*lunchCostPerDay)+(dinners*dinnerCostPerDay)+(gasCost)
-    return tripHours, gasCost, totalCost, breakfast, lunches, dinners
+    return tripHours, gasCost, totalCost, breakfast, lunches, dinners 
+    print("pog")
