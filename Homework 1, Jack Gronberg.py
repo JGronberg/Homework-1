@@ -1,5 +1,5 @@
 def hawkID():
-    return("01466779")
+    return("JGronberg")
 
 def computeTripData(distanceK, vehSpeedMPS, vehKPL, gasCostPerLiter, breakfastCostPerDay, lunchCostPerDay, dinnerCostPerDay, hotelCostPerNight):
     tripHours = distanceK/((vehSpeedMPS*18)/5)
@@ -41,3 +41,6 @@ def printTripSummary(vehName, distanceM, vehSpeedMPH, vehMPG, gasCostPerGallon, 
     tripHours, gasCost, totalCost, breakfast, lunches, dinners, hotelNights = computeTripData(distanceM*1.609, vehSpeedMPH*1.609,vehMPG/2.352, gasCostPerGallon/3.78541, breakfastCostPerDay, lunchCostPerDay, dinnerCostPerDay, hotelCostPerNight)
     outputString = f"{vehName} trip of {distanceM}  miles. Hotel nights: {hotelNights}, Total Cost: ${totalCost:.2f}"
     print(outputString)
+
+#i know that it's not finished, just didn't allocate enough time going to change that for the next assignment though.
+#the formatting is all finished just the math isn't all the way there yet. I just don't want to be handing in any late assignments
