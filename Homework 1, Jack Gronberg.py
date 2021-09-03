@@ -2,7 +2,7 @@ def hawkID():
     return("01466779")
 
 def computeTripData(distanceK, vehSpeedMPS, vehKPL, gasCostPerLiter, breakfastCostPerDay, lunchCostPerDay, dinnerCostPerDay, hotelCostPerNight):
-    tripHours = distanceK/vehSpeedMPS
+    tripHours = distanceK/((vehSpeedMPS*18)/5)
     tripHoursTemp = tripHours
     dinners,lunches,breakfast = 0,0,0
     additionalReqs = 0
@@ -31,18 +31,13 @@ def computeTripData(distanceK, vehSpeedMPS, vehKPL, gasCostPerLiter, breakfastCo
         lunches+=additionalReqs+1
         dinners+=additionalReqs+1
         tripHoursTemp = tripHoursTemp-40
-   # if(tripHours%40==0):
-    #  breakfast = (int)(tripHours/8)*
-    #    lunches = (int)(tripHours/8)
-    #  dinners = (int)(tripHours/8)
-    #    if(tripHours>40):
-    #       hotelNights += (int)(tripHours/40)
-    #    additionalReqs = (int)(tripHours/40)
-    #    breakfast+=additionalReqs
-    #    lunches+=additionalReqs
-    #    dinners+=additionalReqs
     breakfast = (int)(tripHours/8)
     lunches = (int)(tripHours/8)
     dinners = (int)(tripHours/8)
     totalCost = (breakfast*breakfastCostPerDay)+(lunches*lunchCostPerDay)+(dinners*dinnerCostPerDay)+(gasCost)
     return tripHours, gasCost, totalCost, breakfast, lunches, dinners, hotelNights
+
+def printTripSummary(vehName, distanceM, vehSpeedMPH, vehMPG, gasCostPerGallon, breakfastCostPerDay, lunchCostPerDay, dinnerCostPerDay, hotelCostPerNight):
+    tripHours, gasCost, totalCost, breakfast, lunches, dinners, hotelNights = computeTripData(distanceM*1.609, vehSpeedMPH*1.609,vehMPG/2.352, gasCostPerGallon/3.78541, breakfastCostPerDay, lunchCostPerDay, dinnerCostPerDay, hotelCostPerNight)
+    outputString = f"{vehName} trip of {distanceM}  miles. Hotel nights: {hotelNights}, Total Cost: ${totalCost:.2f}"
+    print(outputString)
