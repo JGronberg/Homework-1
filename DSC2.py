@@ -11,7 +11,14 @@
 # E.g. q1(3) should return 0 while q1(21) should return 7
 #
 def q1 (num):
-    # add code here
+    if(num%2!=0 and num%7!=0 and num%14!=0):
+        return 0
+    elif(num%2==0 and num%14!=0):
+        return 2
+    elif(num%7==0 and num%14!=0):
+        return 7
+    else:
+        return 14
     return
 
 # Q2. Given non-negative integer n, q2(n) should call q1 for each integer from 1 up
@@ -25,8 +32,18 @@ def q1 (num):
 # 46
 #
 def q2(n):
-    # add code here
-    return
+    result=0
+    final=0
+    if(n==0):
+        return 0
+    while(n>0):
+        result=q1(n)
+        final+=result
+        #print(n)
+        n-=1
+    return final
+
+
 
 # Q3.Complete function sumDigitsOf(n) that returns the sums the digits of a
 #    the given positive number n
@@ -59,8 +76,15 @@ def q2(n):
 #  make sure you understand. E.g. enter 432 % 10 and 432 // 10
 #
 def sumDigitsOf(number):
-    # add code here
-    return #result
+    digit=0
+    sum=0
+    newNumber=0
+    while(number!=0):
+        digit=number%10
+        sum+=digit
+        newNumber=number//10
+        number=newNumber
+    return sum
 
 
 
