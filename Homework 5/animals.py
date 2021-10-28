@@ -53,7 +53,20 @@ class Dog(Animal):
         return '<{} the dog. ID:{}>'.format(self.name, self.id)
 
 class Snake(Animal):
-    def __init__(self, name = "ozzy"):
+    def __init__(self, name = "ozzy", species = 'unknown'):
+        Animal.__init__(self, name, 0)
+        self.species = species
+    def speak(self):
+        print("sssssssssssssssssssssssssssssssssssssssssssssss")
+
+    def getSpecies(self):
+        return self.species
+
+    def sliter(self):
+        print("I'm ssssssslithering")
+
+    def __repr__(self):
+        return '<{} the snake. ID:{}>'.format(self.name, self.id)
 
 
         
@@ -62,8 +75,12 @@ def testAnimal():
     c2 = Cat(furColor = "black")
     d1 = Dog()
     d2 = Dog()
-    for animal in [c1, c2, d1, d2]:
+    a1 = Snake()
+    a2 = Snake(species = "Ball Python")
+    for animal in [c1, c2, d1, d2, a1, a2]:
         print(animal)
         animal.speak()
     d1.fetch()
+    a1.sliter()
     print(c2.getFurColor())
+    print(a2.getSpecies())
